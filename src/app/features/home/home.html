@@ -1,15 +1,14 @@
-<div class="container-fluid d-flex justify-content-center align-items-center w-100" style="margin: 0; padding: 0;">
-    <div class="w-100">
-        <app-header></app-header>
-    </div>
-</div>
+<!-- Header -->
+<app-header></app-header>
 
 <!-- Div de la posicion de los cards -->
 <div class="container-fluid bg-black py-4" style="margin-top: -20px; position: relative; z-index: 1;">
     <div class="row g-4">
-        <div class="col-12 col-sm-2 col-md-6 col-lg-5 col-xl-4 col-xxl-3 col d-flex justify-content-center py-2" *ngFor="let character of characters">
-            <app-cards [character]="character"></app-cards>
+      <ng-container *ngFor="let character of characters">
+        <div class="col-12 col-sm-2 col-md-6 col-lg-5 col-xl-4 col-xxl-3 d-flex justify-content-center py-2">
+        <app-cards [character]="character"></app-cards>
         </div>
+    </ng-container>
     </div>
 </div>
-    
+ 
