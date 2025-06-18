@@ -18,6 +18,7 @@ export class Home implements OnInit {
   searchTerm: string = '';
 
   constructor(private ramApi: RamApi) {}
+  
 
   ngOnInit(): void {
     this.loadCharacters(); // Carga inicial
