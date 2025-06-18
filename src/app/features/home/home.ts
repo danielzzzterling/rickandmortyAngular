@@ -1,35 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RamApi } from '../../core/services/ram-api';
 import { Header } from '../../shared/header/header';
 import { Cards } from '../../shared/cards/cards';
-import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // <-- importante
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Header, Cards, CommonModule, ],
+  imports: [Header, Cards, CommonModule, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home implements OnInit {
-  protected title = 'rick-and-morty-app';
   characters: any[] = [];
+  searchTerm: string = '';
 
   constructor(private ramApi: RamApi) {}
 
   ngOnInit(): void {
-    this.ramApi.getAllCharacters().subscribe((res: any) => {
-      this.characters = res.results.filter((character: any) =>
-        character &&
-        typeof character === 'object' &&
-        character.name &&
-        character.image &&
-        character.location
-      );
+    this.loadCharacters(); // Carga inicial
+  }
+
+  loadCharacters(page: number = 1): void {
+    this.ramApi.getAllCharacters(page, this.searchTerm).subscribe((res: any) => {
+      this.characters = res.results;
     });
   }
+
+  onSearch(): void {
+    this.loadCharacters(); // Usa el valor actual de searchTerm
+  }
 }
-
-
-
