@@ -10,11 +10,15 @@ export class RamApi {
   private baseUrl = 'https://rickandmortyapi.com/api';
   constructor(private http: HttpClient) { }
 
-
-    //Obtener todos los personajes de la API
-    getAllCharacters(page: number = 1): Observable<any> {
-        return this.http.get(`${this.baseUrl}/character?page= ${page}`);
-    }
+  //Obtener el nombre y el numero de pagina a traves de la API
+     getAllCharacters(page: number = 1, name: string = ''): Observable<any> {
+    return this.http.get(`${this.baseUrl}/character`, {
+      params: {
+        page: page.toString(),
+        name
+      }
+    });
+  }
 
     //Obtener un personaje especifico por ID
     getCharacterForId(id: number): Observable<any>{
