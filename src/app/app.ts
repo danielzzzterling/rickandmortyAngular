@@ -7,7 +7,7 @@ import { Cards } from './shared/cards/cards';
 @Component({
   selector: 'app-root',
   standalone:true,
-  imports: [RouterOutlet,CommonModule,NavbarComponent,Cards],
+  imports: [RouterOutlet,CommonModule,Cards],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

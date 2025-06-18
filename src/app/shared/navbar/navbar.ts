@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
 export class NavbarComponent {
-onSearch() {
-throw new Error('Method not implemented.');
-}
-searchTerm: any;
+  searchTerm: string = '';
+  @Output() search = new EventEmitter<string>();
 
+  onSearch(): void {
+    this.search.emit(this.searchTerm);
+  }
 }
