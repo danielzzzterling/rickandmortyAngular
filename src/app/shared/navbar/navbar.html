@@ -1,7 +1,9 @@
-<input
-  type="text"
-  [(ngModel)]="searchTerm"
-  (input)="onSearch()"
-  placeholder="Buscar personaje..."
-  class="form-control"
-/>
+<div class="container-fluid"> 
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Buscar personaje..."
+    class="search-input p-4 bg-transparent bs-1"
+  />
+</div>
