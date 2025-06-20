@@ -1,0 +1,41 @@
+*{
+  cursor:auto;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: black;
+  height: 150px;
+}
+
+.pagination-btn {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  font-family: 'Bowlby One', sans-serif;
+}
+
+.pagination-btn:hover {
+  border-color: #00cc66;
+  color: #00cc66;
+  box-shadow: 0 0 8px rgba(0, 255, 100, 0.4);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.9;
+  cursor: not-allowed;
+  border-color: grey;
+  color: grey;
+}
+
+.pagination-info {
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Bowlby One', sans-serif;
+}

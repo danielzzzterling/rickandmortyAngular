@@ -1,10 +1,8 @@
-
-<app-navbar (search)="onSearch($event)"></app-navbar>
+<!--Search bar enlazada a la Api --> 
+<app-navbar (search)="onSearch($event) "></app-navbar>
 
 <!-- Header -->
 <app-header></app-header>
-
-
 
 <!-- Div de la posicion de los cards -->
 <div class="container-fluid bg-black py-4" style="margin-top: -20px; position: relative; z-index: 1;">
@@ -14,7 +12,19 @@
         <app-cards [character]="character"></app-cards>
       </div>
     </ng-container>
-    
     </div>
 </div>
- 
+
+
+<!-- Paginación -->
+<div class="pagination-container text-center">
+  <button class="pagination-btn me-2" (click)="prevPage()" [disabled]="currentPage === 1">
+    ← Anterior
+  </button>
+
+  <span class="pagination-info">{{ currentPage }} / {{ totalPages }}</span>
+
+  <button class="pagination-btn ms-2" (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Siguiente →
+  </button>
+</div>
